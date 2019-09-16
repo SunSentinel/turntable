@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-frameworke0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-featurese0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-indexe0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-servicese0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> 
+        <link rel="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+        
+        <style>
+            #resultsSection {
+                display: none;
+            }
+        </style>
+        
+    </head>
+    <body>
+
+        <section class="header container mt-5 mb-5">
+            <h1>TurnTable</h1>
+
+            <form id="tableForm">
+                <div class="form-row">
+
+                    <div class="col-sm">
+                        <textarea style="height: 500px" class="w-100 form-control" id="datapaste" name="excel_data" placeholder="Paste data from a spreadsheet here..." style="width:250px;height:150px;" required></textarea>
+                    </div>
+
+                    <div class="col-sm">
+
+                        <label for="tableTitle">Table title</label>
+                        <input type="text" id="tableTitle" class="form-control mb-4" aria-label="Table title" placeholder="A great table about an interesting topic">                        
+                        <label for="tableDescription">Table description</label>
+                        <textarea id="tableDescription" class="form-control mb-4" placeholder="This is a description of the table, including any caveats readers might need to know." aria-label="Table description"></textarea>
+                    
+                        <label for="tableSource">Data source</label>
+                        <input type="text" id="tableSource" class="form-control mb-4" aria-label="Table data source" placeholder="Source: Florida Department of Education">
+
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="sortKey">Sort by</label>
+                                <select class="form-control" id="sortKey">
+                                    <option>--</option>
+                                </select>                            
+                            </div>
+                            <div class="col">
+                                <label for="sortMethod">Sort order</label>
+                                <select class="form-control" id="sortMethod">
+                                    <option value="asc">Ascending</option>
+                                    <option value="desc">Descending</option>
+                                </select>                            
+                            </div>
+
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="searchCheck">
+                            <label class="form-check-label" for="searchCheck">
+                                Make searchable
+                            </label>
+                        </div>
+    
+
+                        <button type="submit" class="btn btn-dark mt-3">Generate Table</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+            </div>
+        </section>
+
+
+        <section id="resultsSection" class="results container mt-5 mb-5">
+            <div class="row">
+                <div class="col-sm">
+                    <h3>Table preview</h3>
+                    <div id="renderedTable" class="mt-4"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h3>Embed code</h3>
+                    <p>Copy and paste this into an HTML block in Arc.</p>
+                    <textarea id="embedCode" class="form-control" style="height:400px;"></textarea>
+                </div>
+            </div>
+
+        </section>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" async></script>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>
