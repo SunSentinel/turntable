@@ -11,11 +11,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-frameworke0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-featurese0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-indexe0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-servicese0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> 
+        <!-- <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-frameworke0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-featurese0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-indexe0046bea2f8aac68a047.css?v=154" rel="stylesheet"/> <link href="https://www.sun-sentinel.com/pb/resources/gdist/e0046bea2f8aac68a047/soflanews/soflanews-servicese0046bea2f8aac68a047.css?v=154" rel="stylesheet"/>  -->
         <link rel="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
         
         <style>
-            #resultsSection {
+            #resultsSection, #optionsSection {
                 display: none;
             }
         </style>
@@ -26,15 +26,25 @@
         <section class="header container mt-5 mb-5">
             <h1>TurnTable</h1>
 
-            <form id="tableForm">
+            <form id="pasteForm">
                 <div class="form-row">
-
+                    
                     <div class="col-sm">
-                        <textarea style="height: 500px" class="w-100 form-control" id="datapaste" name="excel_data" placeholder="Paste data from a spreadsheet here..." style="width:250px;height:150px;" required></textarea>
+                        <textarea style="height: 400px" class="w-100 form-control" id="datapaste" name="paste_data" placeholder="Paste data from a spreadsheet here..." style="width:250px;height:150px;white-space: pre-wrap;" required></textarea>
                     </div>
+                </div>
+                <button type="submit" id="pasteSubmit" class="btn btn-dark mt-3">Load data</button>
 
+            </form>
+        </section>
+        
+
+        <section id="optionsSection" class="results container mt-5 mb-5">
+            <form id="tableOptionsForm">
+                <div class="form-row">
                     <div class="col-sm">
-
+                        <h3>Table configuration</h3>
+                        
                         <label for="tableTitle">Table title</label>
                         <input type="text" id="tableTitle" class="form-control mb-4" aria-label="Table title" placeholder="A great table about an interesting topic">                        
                         <label for="tableDescription">Table description</label>
@@ -42,6 +52,9 @@
                     
                         <label for="tableSource">Data source</label>
                         <input type="text" id="tableSource" class="form-control mb-4" aria-label="Table data source" placeholder="Source: Florida Department of Education">
+
+                        <label for="tableSource">Table byline</label>
+                        <input type="text" id="tableByline" class="form-control mb-4" aria-label="Table byline" placeholder="YOUR NAME / Sun Sentinel">
 
                         <div class="form-row mb-3">
                             <div class="col">
@@ -67,7 +80,7 @@
                         </div>
     
 
-                        <button type="submit" class="btn btn-dark mt-3">Generate Table</button>
+                        <button type="submit" id="optionsSubmit" class="btn btn-dark mt-3">Generate Table</button>
                     </div>
 
                 </div>
@@ -82,6 +95,7 @@
             <div class="row">
                 <div class="col-sm">
                     <h3>Table preview</h3>
+                    <p>Table may appear differently in Arc. Sorting and pagination also not rendered in this preview.</p>
                     <div id="renderedTable" class="mt-4"></div>
                 </div>
             </div>
@@ -97,6 +111,6 @@
         </section>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" async></script>
-        <script type="text/javascript" src="scripts.js"></script>
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
