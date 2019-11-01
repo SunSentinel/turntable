@@ -8,5 +8,3 @@ This projects takes spreadhseet data and turns it into a sortable HTML table a l
 
 It's currently designed to output Arc-compatible tables at the South Florida Sun Sentinel.
 
-## Developing
-There are only two files 
